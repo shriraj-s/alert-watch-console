@@ -2,15 +2,14 @@ import { initializeApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
 import { getDatabase } from 'firebase/database';
 
-// TODO: Replace with your Firebase config from Firebase Console
+// Firebase configuration
 const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
-  databaseURL: "https://YOUR_PROJECT_ID-default-rtdb.firebaseio.com",
-  projectId: "YOUR_PROJECT_ID",
-  storageBucket: "YOUR_PROJECT_ID.appspot.com",
-  messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-  appId: "YOUR_APP_ID"
+  apiKey: "AIzaSyARLPIBxEh8SrZiBGToMZqwIJzmL0A-JF8",
+  authDomain: "eprd-65428.firebaseapp.com",
+  projectId: "eprd-65428",
+  storageBucket: "eprd-65428.firebasestorage.app",
+  messagingSenderId: "198387872835",
+  appId: "1:198387872835:web:b74abe0b19de65d07410f6"
 };
 
 // Initialize Firebase
@@ -19,5 +18,4 @@ const app = initializeApp(firebaseConfig);
 // Initialize services
 export const auth = getAuth(app);
 export const database = getDatabase(app);
-
 export default app;
