@@ -1,5 +1,8 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { Activity, AlertCircle, Shield, Battery } from "lucide-react";
+import { auth } from "@/lib/firebase";
+import { onAuthStateChanged } from "firebase/auth";
 import Navigation from "@/components/Navigation";
 import Sidebar from "@/components/Sidebar";
 import DashboardCard from "@/components/DashboardCard";
@@ -8,10 +11,22 @@ import MapView from "@/components/MapView";
 import AlertsPanel from "@/components/AlertsPanel";
 
 const Dashboard = () => {
+  const navigate = useNavigate();
   const [heartRate, setHeartRate] = useState(72);
   const [sosStatus, setSosStatus] = useState<"safe" | "alert">("safe");
   const [geofenceStatus, setGeofenceStatus] = useState<"safe" | "warning">("safe");
   
+  // Check authentication
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (!user) {
+        navigate("/auth");
+      }
+    });
+
+    return () => unsubscribe();
+  }, [navigate]);
+
   // Simulate real-time heart rate updates
   useEffect(() => {
     const interval = setInterval(() => {

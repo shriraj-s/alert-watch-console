@@ -64,12 +64,20 @@ const Landing = () => {
             </div>
           </div>
           
-          <Link to="/dashboard" className="mt-8">
-            <Button size="lg" className="gap-2 text-lg px-8 py-6 shadow-lg hover:shadow-xl transition-shadow">
-              Go to Dashboard
-              <ArrowRight className="h-5 w-5" />
-            </Button>
-          </Link>
+          <div className="flex gap-4 mt-8">
+            <Link to="/auth">
+              <Button size="lg" className="gap-2 text-lg px-8 py-6 shadow-lg hover:shadow-xl transition-shadow">
+                Get Started
+                <ArrowRight className="h-5 w-5" />
+              </Button>
+            </Link>
+            <Link to="/dashboard">
+              <Button size="lg" variant="outline" className="gap-2 text-lg px-8 py-6 shadow-lg hover:shadow-xl transition-shadow">
+                Go to Dashboard
+                <ArrowRight className="h-5 w-5" />
+              </Button>
+            </Link>
+          </div>
         </div>
       </div>
       
